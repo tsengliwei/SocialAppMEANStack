@@ -14,9 +14,9 @@ app.use(require('./controllers/static'))
 // equivalent to app.use('/', require('./controllers/static'))
 
 
-
-var server = app.listen(3000, function(){
-	console.log('Server listening on', 3000)
+var port = process.env.PORT || 3000
+var server = app.listen(port, function(){
+	console.log('Server', process.pid, 'listening on', port)
 })
 
 require('./websockets').connect(server)
